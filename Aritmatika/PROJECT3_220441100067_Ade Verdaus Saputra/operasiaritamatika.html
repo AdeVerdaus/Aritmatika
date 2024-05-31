@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HITUNG</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<h1>Mean Modus Min Max</h1>
+	
+	<form>
+		<label for="data">Masukkan Data (dipisahkan dengan koma):</label><br>
+		<input type="text" id="data" name="data" size="50"><br><br>
+		
+		<input type="button" value="Hitung" onclick="hitungStatistik(),alert('Mohon Isikan datanya')">
+	</form>
+	
+	<div id="hasil"></div>
+
+	<script>
+
+		function hitungStatistik() {
+			// Ambil data yang dimasukkan oleh pengguna
+			var dataString = document.getElementById("data").value;
+
+			if (dataString == "") {
+			alert("Mohon isikan datanya");
+			return;
+		}
+
+			// Ubah string menjadi array
+			var data = dataString.split(",").map(Number);
+
+			// Hitung mean
+			var jumlah= 0;
+			for (var i = 0; i < data.length; i++) {
+				jumlah+= data[i];
+			}
+			var mean = jumlah / data.length;
+
+			// Hitung modus
+			var modus = null;
+			var hitung = {};
+			for (var i = 0; i < data.length; i++) {
+				var angka = data[i];
+				if (hitung[angka] === undefined) {
+					hitung[angka] = 0;
+				}
+				hitung[angka]++;
+				if (modus === null || hitung[angka] > hitung[modus]) {
+					modus = angka;
+				}
+			}
+
+			// Hitung minimum
+			var min = Math.min(...data);
+
+			// Hitung maksimum
+			var max = Math.max(...data);
+
+			// Tampilkan hasil
+			var hasil = document.getElementById("hasil");
+			hasil.innerHTML = "Mean: " + mean.toFixed(2) + "<br>" +
+				"Modus: " + modus + "<br>" +
+				"Minimum: " + min + "<br>" +
+				"Maksimum: " + max;
+		}
+	</script>
+</body>
+</html>

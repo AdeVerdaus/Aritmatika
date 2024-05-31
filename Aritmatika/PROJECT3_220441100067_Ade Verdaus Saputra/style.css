@@ -1,0 +1,29 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	text-align: center;
+	background-image: url('konten.webp'); background-size: cover;
+	color: sandybrown;
+}
+
+h1 {
+	margin-top: 20px;
+}
+
+label {
+	display: block;
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+
+#data {
+	padding: 5px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#hasil{
+	margin-top: 20px;	
+}
+
